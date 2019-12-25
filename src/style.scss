@@ -1,0 +1,137 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.card.horizontal{
+    height:95%;
+}
+.empty{
+
+}
+.vl {
+    border-left: 0.4rem solid #ffb300 ;
+    padding-left: 0.8rem;
+    padding-bottom: 0.8rem;
+    margin-left: 4rem;
+  }
+.vl-no-margin-left{
+  border-left: 0.4rem solid #ffb300 ;
+  padding-left: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+  .header{
+    font-family: 'Oswald', sans-serif;
+  }
+.card-title {
+  font-size: 3vw !important;
+}
+.movie-text {
+    padding: 2rem;
+    margin:2rem;
+}
+.movie-poster img{
+  margin-top:5rem;
+
+}
+.movie-content{
+  line-height: 2;
+  margin-top:5rem;
+}
+
+@media (min-width: 768px) {
+  .card-title {
+    font-size: 1.5rem !important;
+  }
+}
+.date {
+  font-size: 0.9rem !important;
+}
+@media (min-width: 768px) {
+  .date {
+    font-size: 0.7rem !important;
+  }
+}
+.review {
+  span {
+    font-size: 1.5vw !important;
+  }
+  .stars {
+    font-size: 2vw !important;
+  }
+}
+@media (min-width: 768px) {
+  .review {
+    span {
+      font-size: 1rem !important;
+    }
+    .stars {
+      font-size: 1.3rem !important;
+    }
+  }
+}
+.overview {
+  * {
+    font-size: 1.5vw !important;
+  }
+}
+@media (min-width: 768px) {
+  .overview {
+    * {
+      font-size: 0.85rem !important;
+    }
+  }
+}
+@media (min-width: 1400px) {
+  .overview {
+    * {
+      font-size: 1rem !important;
+    }
+  }
+}
+// tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 11rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -5.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+//tooltip end
+.stars-in-moive-page{
+  padding-top: 0rem;
+}
+.d-flex{
+  display: flex;
+}
