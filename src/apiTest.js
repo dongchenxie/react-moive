@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { fetchApp } from './fetch';
-import { MoiveComponent } from './moiveComponent';
+import { fetchApp } from './component/fetch';
+import { MoiveComponent } from './component/movieComponent';
 export function Test() {
     const [data, setData] = useState({ hits: [] });
     const [moviesData, setMoiveData] = useState(null);

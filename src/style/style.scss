@@ -1,0 +1,258 @@
+// .flex {
+//   display: flex;
+//   flex-wrap: wrap;
+//   //align-items: stretch;
+// }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.card.horizontal {
+  height: 65vw;
+}
+
+.dropdown-content {
+  overflow-y: auto !important;
+  max-height: 250px;
+}
+@media (min-width: 768px) {
+  .card.horizontal {
+    height: 45vw;
+  }
+}
+@media (min-width: 1200px) {
+  .card.horizontal {
+    height: 25vw;
+  }
+}
+
+.empty {
+}
+.vl {
+  border-left: 0.4rem solid #ffb300;
+  padding-left: 0.8rem;
+  padding-bottom: 0.8rem;
+  margin-left: 4rem;
+}
+.vl-no-margin-left {
+  border-left: 0.4rem solid #ffb300;
+  padding-left: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.header {
+  font-family: "Oswald", sans-serif;
+}
+.sub-header {
+  margin-left: 5rem;
+  font-family: "Oswald", sans-serif;
+}
+.card-title {
+  font-size: 3vw !important;
+}
+.movie-text {
+  padding: 2rem;
+  margin: 2rem;
+}
+.movie-poster img {
+  margin-top: 5rem;
+}
+.movie-content {
+  line-height: 2;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-title {
+    font-size: 1.5rem !important;
+  }
+}
+.date {
+  font-size: 0.9rem !important;
+}
+@media (min-width: 768px) {
+  .date {
+    font-size: 0.7rem !important;
+  }
+}
+.review {
+  span {
+    font-size: 1.5vw !important;
+  }
+  .stars {
+    font-size: 2vw !important;
+  }
+}
+@media (min-width: 768px) {
+  .review {
+    span {
+      font-size: 1rem !important;
+    }
+    .stars {
+      font-size: 1.3rem !important;
+    }
+  }
+}
+.overview {
+  * {
+    font-size: 1.5vw !important;
+  }
+}
+@media (min-width: 768px) {
+  .overview {
+    * {
+      font-size: 0.85rem !important;
+    }
+  }
+}
+@media (min-width: 1400px) {
+  .overview {
+    * {
+      font-size: 1rem !important;
+    }
+  }
+}
+// tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 11rem;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -5.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+//tooltip end
+.stars-in-moive-page {
+  padding-top: 0rem;
+}
+.d-flex {
+  display: flex;
+}
+
+//input form color
+.input-field label {
+  color: #000;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #ffc107;
+  box-shadow: 0 1px 0 0 #ffc107;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #ffc107;
+  box-shadow: 0 1px 0 0 #ffc107;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #ffc107;
+  box-shadow: 0 1px 0 0 #ffc107;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
+//select drop down color
+.year-list{
+  span{
+    color:#000 !important;
+  }
+}
+//checkbox color
+[type="checkbox"]:checked+span:not(.lever):before {
+  border-right: 2px solid #ffc107;
+  border-bottom: 2px solid #ffc107;
+}
+
+//radio button color
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: #ffc107;
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border: 2px solid #ffc107;
+}
+//search bar color
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ffc107;
+  box-shadow: 0 1px 0 0 #ffc107;
+}
+//autocomplete color
+.section-search input.autocomplete {
+  color: #000;
+}
+.input-field .prefix.active {
+  color: #ffc107!important;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+  color: black!important;
+}
+.autocomplete-content li .highlight {
+  color: #ff6f00!important;
+}
+
+
+html, #root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+.logo-layout{
+  display:flex;
+}
+.logo-font{
+  font-family: 'Black Ops One', cursive;
+  font-size:3rem
+}
+.logo-text{
+  font-size: 1rem;
+  align-items: center;
+}

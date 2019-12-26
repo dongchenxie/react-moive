@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Home } from './home';
+import reactLogo from './logo/logo512.png'
+import materializeLogo from './logo/materialize-seeklogo.com.svg'
+import sassLogo from "./logo/sass-1.svg"
+import { Home } from './pages/home';
 import { Test } from './apiTest'
-import { Rated } from './rated';
-import { Favorite } from './favorite';
-import { MoivePage } from './moivePage'
+import { Rated } from './pages/rated';
+import { Favorite } from './pages/favorite';
+import { MoivePage } from './pages/moivePage'
+import { Discover } from './pages/discover'
+import { Search } from "./pages/search"
+import { About } from "./pages/about"
+import { SearchComponent } from './component/searchComponent'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,47 +19,38 @@ import {
   useParams,
   Redirect
 } from "react-router-dom";
+import 'materialize-css/dist/css/materialize.min.css'
+import M from 'materialize-css'
 function App() {
   const [context, setContext] = useState("gfg");
   useEffect(() => {
-    console.log("app js loaded")
-  });
+    var elems = document.querySelectorAll('.sidenav');
+    let instances = M.Sidenav.init(elems);
+    var elems1 = document.querySelectorAll('.dropdown-trigger');
+    let instances1 = M.Dropdown.init(elems1);
+  }, []);
   return (
     <Router>
-      <nav className="">
-        <div className="nav-wrapper  grey darken-4 ">
-          <form className="right hide-on-med-and-down">
-            <div className="input-field">
-              <input id="search" type="search" required />
-              <label classnames="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-              <i className="material-icons">close</i>
-            </div>
-          </form>
-          <a href="#!" className="brand-logo">Logo</a>
 
-          <a data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-          <ul className="right hide-on-med-and-down">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/discover">Discover</Link></li>
-            <li><Link to="/rated">Rated Pages</Link></li>
-            <li><Link to="/favorite">Favorite</Link></li>
-            <li><Link to="route" onClick={(event) => { event.preventDefault(); window.location.replace("/discover"); }} >123232</Link></li>
-            <li><a className='dropdown-trigger' data-target='dropdown1'>Drop Me!</a>
+      <main>
+        <nav className="">
+          <div className="nav-wrapper  grey darken-4 ">
+            <SearchComponent className="right hide-on-med-and-down" minimize={true} id="nav-search" />
+            <a href="#!" className="brand-logo logo-layout"><a className="logo-font">&nbsp;M</a><a className="logo-text">The Movie App</a></a>
 
-              <ul id='dropdown1' className='dropdown-content'>
-                <li><a href="#!">one</a></li>
-                <li><a href="#!">two</a></li>
-                <li className="divider" tabIndex="-1"></li>
-                <li><a href="#!">three</a></li>
-                <li><a href="#!"><i className="material-icons">view_module</i>four</a></li>
-                <li><a href="#!"><i className="material-icons">cloud</i>five</a></li>
-              </ul></li>
-          </ul>
+            <a data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+            <ul className="right hide-on-med-and-down">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/discover">Discover</Link></li>
+              <li><Link to="/rated">Rated Pages</Link></li>
+              <li><Link to="/favorite">Favorite</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
 
-          {/* <a className="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+            {/* <a className="btn-floating btn-large halfway-fab waves-effect waves-light teal">
             <i className="material-icons">add</i>
           </a> */}
-          {/* <a id="menu" className="btn-floating btn-large halfway-fab waves-effect waves-light teal" ><i className="material-icons">menu</i></a>
+            {/* <a id="menu" className="btn-floating btn-large halfway-fab waves-effect waves-light teal" ><i className="material-icons">menu</i></a>
 
 
           <div className="tap-target" data-target="menu">
@@ -63,47 +59,92 @@ function App() {
               <p>A bunch of text</p>
             </div>
           </div> */}
-        </div>
-
-      </nav>
-
-      <ul className="sidenav" id="mobile-demo">
-        <li><a to="/">Home</a></li>
-        <li><a target="_self" href="/discover">Discover</a></li>
-        <li><Link target="_blank" to="/rated">Rated Pages</Link></li>
-        <li><Link target="_blank" to="/favorite">Favorite</Link></li>
-        <li><Link to="route" target="_blank" onClick={(event) => { event.preventDefault(); window.open(this.makeHref("route")); }} >123232</Link></li>
-        {/* <li><form action="/" className="" >
-          <div className="input-field">
-            <input id="search1" name="search" type="search" required />
-            <label className="label-icon" for="search1"><i className="material-icons">search</i></label>
-            <i className="material-icons">close</i>
           </div>
-        </form></li> */}
 
-      </ul>
+        </nav>
 
-      <Switch>
-        <Route exact path="/">
-          <Redirect to="/home?name=popular" />
-        </Route>
+        <ul className="sidenav" id="mobile-demo">
 
-        <Route path="/home">
-          <Home />
-        </Route>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/discover">Discover</Link></li>
+          <li><Link to="/rated">Rated Pages</Link></li>
+          <li><Link to="/favorite">Favorite</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><SearchComponent minimize={true} id="sidenav-search" /></li>
+        </ul>
+
+        <Switch>
+          <Route exact path="/">
+            <Redirect to="/home?name=popular" />
+          </Route>
+
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/movie/:id">
+            <MoivePage />
+          </Route>
+          <Route forceRefresh={true} path="/rated">
+            <Rated />
+          </Route>
+          <Route forceRefresh={true} path="/favorite">
+            <Favorite />
+          </Route >
+          <Route forceRefresh={true} path="/discover">
+            <Discover />
+          </Route >
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route forceRefresh={true} path="/:id" children={<Child />} />
+        </Switch>
+      </main>
+      <footer className=" grey darken-4 page-footer">
+        <div className="container">
+          <div className="row">
+            <div className="col l6 s12">
+              <h5 className="white-text">The Movie App</h5>
+              <p className="white-text">Powerd by:</p>
+              <div className="row">
+                <div className="col l2 s3">
+                <a href="https://www.themoviedb.org/" ><img herf="https://www.themoviedb.org/" src="https://www.themoviedb.org/assets/2/v4/logos/stacked-green-cae7a95e2590dbdde28284ac26245cb2792788838f5c498b892e8d01c183e6f3.svg"></img></a>
+                </div>
+                <div className="col l2 s3">
+                  <a href="https://reactjs.org/" ><img herf="https://reactjs.org/" style={{width:"100%"}}src={reactLogo} alt={reactLogo}></img></a>
+                </div>
+                <div className="col l2 s3 img-frame">
+                  <a  href="https://materializecss.com/"><img  style={{width:"110%"}} src={materializeLogo} alt={materializeLogo}></img></a>
+                </div>
+                <div className="col l2 s3 img-frame">
+                  <a  href="https://sass-lang.com/"><img  style={{width:"100%"}} src={sassLogo } alt={sassLogo }></img></a>
+                </div>
+              </div>
 
 
-        <Route path="/moive/:id">
-          <MoivePage />
-        </Route>
-        <Route forceRefresh={true} path="/rated">
-          <Rated />
-        </Route>
-        <Route forceRefresh={true} path="/favorite">
-          <Favorite />
-        </Route >
-        <Route forceRefresh={true} path="/:id" children={<Child />} />
-      </Switch>
+            </div>
+            <div className="col l4 offset-l2 s12">
+              <h5 className="white-text">Links</h5>
+              <ul>
+                <li><Link className="grey-text text-lighten-3" to="/">Home</Link></li>
+                <li><Link className="grey-text text-lighten-3" to="/discover">Discover</Link></li>
+                <li><Link className="grey-text text-lighten-3" to="/rated">Rated Pages</Link></li>
+                <li><Link className="grey-text text-lighten-3" to="/favorite">Favorite</Link></li>
+                <li><Link className="grey-text text-lighten-3" to="/about">About</Link></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="footer-copyright">
+          <div className="container">
+           <a className="center-align grey-text text-lighten-3"> © 2019 Dongchen Xie</a> 
+           
+          
+          </div>
+        </div>
+      </footer>
 
     </Router>
   );
