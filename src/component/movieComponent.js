@@ -40,6 +40,7 @@ export const MovieComponent = (props) => {
                 setSize([window.innerWidth, window.innerHeight]);
             }
             window.addEventListener('resize', updateSize);
+            // window.addEventListener('DOMContentLoaded', updateSize);
             updateSize();
             return () => window.removeEventListener('resize', updateSize);
         }, []);
@@ -52,7 +53,7 @@ export const MovieComponent = (props) => {
     }
     return (
 
-        <div className="card horizontal">
+        <div className={width>600?"card horizontal":"card"}>
             {/* <div  className="card-image">
                 <img src={"https://image.tmdb.org/t/p/w500/" + props.movieData.poster_path} />
                 <img  style={imgStyle}/>
@@ -64,8 +65,8 @@ export const MovieComponent = (props) => {
 
             </div>
             <div className="card-stacked movie-poster" style={imgStyle} >
-                <div className="card-content ">
-                    <TextTruncate class="card-title white-text" line={1} element="span" truncateText="…" text={props.movieData.title}  ></TextTruncate>
+                <div className="card-content " style={{position:"absolute",bottom:"0"}}>
+                    <TextTruncate className="card-title white-text" line={1} element="span" truncateText="…" text={props.movieData.title}  ></TextTruncate>
                 </div>
             </div>
             <div className="card-stacked ">
@@ -76,11 +77,11 @@ export const MovieComponent = (props) => {
 
                     <div className="review "> <Star maxStars={5} maxScore={10} score={props.movieData.vote_average} ></Star><span>({props.movieData.vote_average})</span></div>
                     <span className=""><b>Overview:</b><br/></span>
-                    <TextTruncate line={width > 1200 ? Math.round((width - 900)) / 100 : Math.round((width)) / 350} element="span" truncateText="…" text={props.movieData.overview} className=".overview" textTruncateChild={<a className="activator" >[read more]</a>}></TextTruncate>
+                    <TextTruncate line={width > 1200 ? Math.round((width - 900)) / 175 : Math.round((width)) / 350} element="span" truncateText="…" text={props.movieData.overview} className=".overview" textTruncateChild={<a className="activator" >[read more]</a>}></TextTruncate>
                 </div>
                 <div class="card-action">
                    
-                    <Link to={"/movie/"+props.movieData.id}>Details</Link>
+                    <Link className="black-text"to={"/movie/"+props.movieData.id}>Details</Link>
                 </div>
 
             </div>

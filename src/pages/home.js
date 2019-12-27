@@ -24,7 +24,7 @@ export const Home = (props) => {
     const pageTitle = { "popular": "Popular", "top_rated": "Top Rated", "now_playing": "Now Playing", "upcoming": "Upcoming" }
     let result = vaildParams.find(e => e == id);
     result = result ? result : "popular"
-   
+
     useEffect(() => {
         //console.log("fetchApp")
         fetchApp(setmovieData, "/movie/" + id)
@@ -38,15 +38,16 @@ export const Home = (props) => {
 
     return <div>
         <div className=" grey darken-3">
-            <ul className="tabs tabs-transparent">
-                {
-                    vaildParams.map((e, i) => {
-                    
-                        return (<li className="tab" ><Link onClick={() => { reFetch(e) }} to={"/home?name=" + e}>{pageTitle[e]}</Link></li>)
-                    })
-                }
+            <div className="container">
+                <ul className="tabs tabs-transparent">
+                    {
+                        vaildParams.map((e, i) => {
 
-            </ul>
+                            return (<li className="tab" ><Link onClick={() => { reFetch(e) }} to={"/home?name=" + e}>{pageTitle[e]}</Link></li>)
+                        })
+                    }
+
+                </ul></div>
         </div>
         <div className="container">
             <div >

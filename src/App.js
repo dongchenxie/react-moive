@@ -24,17 +24,23 @@ import M from 'materialize-css'
 function App() {
   const [context, setContext] = useState("gfg");
   useEffect(() => {
+
     var elems = document.querySelectorAll('.sidenav');
     let instances = M.Sidenav.init(elems);
     var elems1 = document.querySelectorAll('.dropdown-trigger');
     let instances1 = M.Dropdown.init(elems1);
+    let localData=localStorage.getItem("movieInfo")
+    if(!localData){
+      localStorage.setItem("movieInfo","{}")
+    }
   }, []);
   return (
     <Router>
 
       <main>
-        <nav className="">
-          <div className="nav-wrapper  grey darken-4 ">
+        <nav className="grey darken-4">
+
+          <div className="nav-wrapper container grey darken-4 ">
             <SearchComponent className="right hide-on-med-and-down" minimize={true} id="nav-search" />
             <a href="#!" className="brand-logo logo-layout"><a className="logo-font">&nbsp;M</a><a className="logo-text">The Movie App</a></a>
 
@@ -107,7 +113,7 @@ function App() {
           <div className="row">
             <div className="col l6 s12">
               <h5 className="white-text">The Movie App</h5>
-              <p className="white-text">Powerd by:</p>
+              <p className="white-text">Powered by:</p>
               <div className="row">
                 <div className="col l2 s3">
                 <a href="https://www.themoviedb.org/" ><img herf="https://www.themoviedb.org/" src="https://www.themoviedb.org/assets/2/v4/logos/stacked-green-cae7a95e2590dbdde28284ac26245cb2792788838f5c498b892e8d01c183e6f3.svg"></img></a>
@@ -137,7 +143,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="footer-copyright">
+        <div className="footer-copyright grey darken-3 ">
           <div className="container">
            <a className="center-align grey-text text-lighten-3"> © 2019 Dongchen Xie</a> 
            

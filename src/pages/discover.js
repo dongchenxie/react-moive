@@ -43,6 +43,7 @@ export const Discover = (props) => {
         })
         let elems5 = document.querySelectorAll('.select-multi');
         let instances5 = M.FormSelect.init(elems5, { isMultiple: true });
+        console.log("wo")
         return items
     }
     const count = (obj) => {
@@ -68,6 +69,8 @@ export const Discover = (props) => {
     useEffect(() => {
         let elems4 = document.querySelectorAll('.select-single');
         let instances4 = M.FormSelect.init(elems4);
+        let elems5 = document.querySelectorAll('.select-multi');
+        let instances5 = M.FormSelect.init(elems5, { isMultiple: true });
 
     }, [genres])
     //fetch default movie data
@@ -95,7 +98,7 @@ export const Discover = (props) => {
     }
    
 
-    if (genres) {
+    if (genres&&genres.length>0) {
         return <div className="container">
             {/* <div>{JSON.stringify(moviesData)}</div> */}
 
@@ -157,7 +160,7 @@ export const Discover = (props) => {
             }
         </div>
     } else {
-        return <div></div>
+        return <div>Connection Error</div>
     }
 
 

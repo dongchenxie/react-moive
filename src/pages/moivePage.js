@@ -23,7 +23,7 @@ export const MoivePage = props => {
   }, []);
 
   const intiPage = (movieDbData) => {
-    //localStorage.clear()
+    localStorage.clear()
     let localStorageData = localStorage.getItem("movieInfo")
     if (!localStorageData) {//the case that movieInfo does not exists
       let initObject = {}

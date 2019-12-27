@@ -44,10 +44,11 @@ export const StarWithInteraction = (props) => {
     const handleHoverOn =(n)=>{setCurrentStar(n)}
     const handleHoverOff =(n)=>{setCurrentStar(starCount)}
     const handleClick =(n)=>{
+        setCurrentStar(n)
         setStarCount(n) 
         callback(n)
     }
-
+    fullstar=starCount
     for (let i = 1; i < maxStars+1; i++) {
         if (fullstar > 0) {
             returnItem.push(star(i))

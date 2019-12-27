@@ -5,29 +5,25 @@
 // }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
-.card.horizontal {
-  height: 65vw;
-}
-
 .dropdown-content {
   overflow-y: auto !important;
   max-height: 250px;
 }
+.card.horizontal {
+  height: 65vw;
+}
 @media (min-width: 768px) {
   .card.horizontal {
-    height: 45vw;
+    height: 55vw;
   }
 }
 @media (min-width: 1200px) {
@@ -35,7 +31,24 @@ code {
     height: 25vw;
   }
 }
-
+.card-title {
+  font-size: 1.25rem !important;
+}
+@media (min-width: 600px) {
+  .card-title {
+    font-size: 1.1rem !important;
+  }
+}
+@media (min-width: 768px) {
+  .card-title {
+    font-size: 1.5rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .card-title {
+    font-size: 1.5rem !important;
+  }
+}
 .empty {
 }
 .vl {
@@ -56,9 +69,7 @@ code {
   margin-left: 5rem;
   font-family: "Oswald", sans-serif;
 }
-.card-title {
-  font-size: 3vw !important;
-}
+
 .movie-text {
   padding: 2rem;
   margin: 2rem;
@@ -70,12 +81,6 @@ code {
   line-height: 2;
   margin-top: 1rem;
 }
-
-@media (min-width: 768px) {
-  .card-title {
-    font-size: 1.5rem !important;
-  }
-}
 .date {
   font-size: 0.9rem !important;
 }
@@ -86,7 +91,7 @@ code {
 }
 .review {
   span {
-    font-size: 1.5vw !important;
+    font-size: 1rem !important;
   }
   .stars {
     font-size: 2vw !important;
@@ -172,21 +177,21 @@ code {
   color: #000;
 }
 /* label focus color */
-.input-field input[type=text]:focus + label {
+.input-field input[type="text"]:focus + label {
   color: #000;
 }
 /* label underline focus color */
-.input-field input[type=text]:focus {
+.input-field input[type="text"]:focus {
   border-bottom: 1px solid #ffc107;
   box-shadow: 0 1px 0 0 #ffc107;
 }
 /* valid color */
-.input-field input[type=text].valid {
+.input-field input[type="text"].valid {
   border-bottom: 1px solid #ffc107;
   box-shadow: 0 1px 0 0 #ffc107;
 }
 /* invalid color */
-.input-field input[type=text].invalid {
+.input-field input[type="text"].invalid {
   border-bottom: 1px solid #ffc107;
   box-shadow: 0 1px 0 0 #ffc107;
 }
@@ -195,26 +200,41 @@ code {
   color: #000;
 }
 //select drop down color
-.year-list{
-  span{
-    color:#000 !important;
+.year-list {
+  span {
+    color: #000 !important;
   }
 }
 //checkbox color
-[type="checkbox"]:checked+span:not(.lever):before {
+[type="checkbox"]:checked + span:not(.lever):before {
   border-right: 2px solid #ffc107;
   border-bottom: 2px solid #ffc107;
 }
 
 //radio button color
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
   background-color: #ffc107;
 }
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
   border: 2px solid #ffc107;
 }
 //search bar color
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #ffc107;
   box-shadow: 0 1px 0 0 #ffc107;
 }
@@ -223,17 +243,18 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
   color: #000;
 }
 .input-field .prefix.active {
-  color: #ffc107!important;
+  color: #ffc107 !important;
 }
-.dropdown-content li>a, .dropdown-content li>span {
-  color: black!important;
+.dropdown-content li > a,
+.dropdown-content li > span {
+  color: black !important;
 }
 .autocomplete-content li .highlight {
-  color: #ff6f00!important;
+  color: #ff6f00 !important;
 }
 
-
-html, #root {
+html,
+#root {
   height: 100%;
 }
 #root {
@@ -245,14 +266,14 @@ html, #root {
 main {
   flex: 1 0 auto;
 }
-.logo-layout{
-  display:flex;
+.logo-layout {
+  display: flex;
 }
-.logo-font{
-  font-family: 'Black Ops One', cursive;
-  font-size:3rem
+.logo-font {
+  font-family: "Black Ops One", cursive;
+  font-size: 3rem;
 }
-.logo-text{
+.logo-text {
   font-size: 1rem;
   align-items: center;
 }
